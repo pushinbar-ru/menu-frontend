@@ -10,7 +10,7 @@
 - Prettier
 - Eslint
 - Webpack
-- Vercel CI/CD
+- ~~Vercel~~ Heroku CI/CD
 - Библиотека компонентов [@pushinbar-ru/bar-ui](https://github.com/pushinbar-ru/bar-ui)
 
 ## TODO
