@@ -1,1 +1,19 @@
-# menu-frontend
+# Фронтенд барного меню
+
+## Используемый инструментарий
+- React
+- React Router
+- Typescirpt
+- CSS Modules
+- Babel
+- Husky with lint-staged
+- Prettier
+- Eslint
+- Webpack
+- Vercel CI/CD
+- Библиотека компонентов [@pushinbar-ru/bar-ui](https://github.com/pushinbar-ru/bar-ui)
+
+## TODO
+
+- [ ] Redux | MobX
+- [ ] Jest
