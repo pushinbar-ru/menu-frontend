@@ -1,6 +1,7 @@
 # Фронтенд барного меню
 
 ## Используемый инструментарий
+
 - React
 - React Router
 - Typescirpt
@@ -15,5 +16,5 @@
 
 ## TODO
 
-- [ ] Redux | MobX
-- [ ] Jest
+- [ ] Redux
+- [ ] Jest | React Testing Library
