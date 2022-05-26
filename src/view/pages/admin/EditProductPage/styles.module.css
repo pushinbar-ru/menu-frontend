@@ -1,0 +1,294 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px 76px;
+}
+
+.main > button:first-of-type {
+  width: max-content;
+  margin-bottom: 8px;
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.backButton {
+  display: none;
+}
+
+.form {
+  margin-top: 8px;
+  flex: 1;
+}
+
+.input {
+  margin-bottom: 8px !important; /* TODO: переделать логику компонента */
+}
+
+.inputHigh {
+  margin-bottom: 16px !important; /* TODO: переделать логику компонента */
+}
+
+.drinkInfoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.drinkInfoWrapper > div:first-of-type {
+  flex: 1;
+}
+
+.notDrinkInfo,
+.drinkInfo {
+  display: flex;
+  gap: 24px;
+}
+
+.drinkInfo > div {
+  flex: 1;
+}
+
+.volume {
+  max-width: 100px;
+}
+
+.sign {
+  flex: 1;
+}
+
+.pictureInfo {
+  margin-top: 24px;
+}
+
+.pictureInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.pictureWrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 88px;
+  aspect-ratio: 680 / 760;
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pictureActionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pictureActionsMobile,
+.pictureActionsDesktop {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pictureActionsDesktop {
+  display: none;
+}
+
+.recommendationsDesktop {
+  display: none;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+  min-width: 340px;
+}
+
+.productInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.productInfoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.barcodeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Libre Barcode EAN13 Text";
+  font-feature-settings: "calt" 1;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 120px;
+  padding: 22px 0;
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 4px;
+}
+
+.changeActionsDesktop {
+  display: none;
+}
+
+.changeActionsMobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  position: fixed;
+  bottom: 0;
+  padding: 8px 0;
+  width: 100%;
+  background-color: rgba(37, 37, 37, 0.5);
+  backdrop-filter: blur(80px);
+  border-radius: 8px 8px 0 0;
+}
+
+.changeActionsMobile > button:first-of-type,
+.changeActionsDesktop > button:first-of-type {
+  color: var(--red);
+}
+
+.changeActionsMobile > button:first-of-type > svg > path,
+.changeActionsDesktop > button:first-of-type > svg > path {
+  fill: var(--red);
+}
+
+.changeLabelSuccess,
+.changeLabelError {
+  margin: 10px 0;
+}
+
+.changeLabelSuccess {
+  color: var(--green);
+}
+
+.changeLabelSuccess > svg > path {
+  fill: var(--green);
+  stroke: var(
+    --green
+  ); /* TODO: добавить это в библиотеку, не везде нужен fill, где-то stroke */
+}
+
+.changeLabelError {
+  color: var(--red);
+}
+
+.changeLabelError > svg > path {
+  stroke: var(--red);
+}
+
+@media (min-width: 1200px) {
+  .main {
+    padding: 24px 120px 96px;
+  }
+
+  .mainWrapper {
+    flex-direction: row;
+    gap: 90px;
+  }
+
+  .form {
+    margin-top: 24px;
+  }
+
+  .backButton {
+    display: flex;
+  }
+
+  .input {
+    margin-bottom: 16px !important; /* TODO: переделать логику компонента */
+  }
+
+  .drinkInfoWrapper {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .drinkInfo > .inputHigh {
+    max-width: 100px;
+  }
+
+  .selectStatus {
+    margin-right: 372px;
+  }
+
+  .pictureInfoWrapper {
+    text-align: left;
+  }
+
+  .pictureWrapper {
+    gap: 16px;
+  }
+
+  .picture {
+    height: 128px;
+  }
+
+  .pictureActionsWrapper {
+    width: auto;
+  }
+
+  .pictureActionsMobile {
+    display: none;
+  }
+
+  .pictureActionsDesktop {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .recommendationsMobile {
+    display: none;
+  }
+
+  .recommendationsDesktop {
+    display: inline-block;
+  }
+
+  .changeActionsMobile {
+    display: none;
+  }
+
+  .changeActionsDesktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    margin-top: 16px;
+  }
+}

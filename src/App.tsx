@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import "./reset.css";
+import "./App.css";
+
+import RequireAuth from "./model/RequireAuth";
+
+import ClientHomePage from "./view/pages/client/HomePage";
+
+import AdminHomePage from "./view/pages/admin/HomePage";
+import AdminLoginPage from "./view/pages/admin/LoginPage";
+import AdminEditProductPage from "./view/pages/admin/EditProductPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ClientHomePage />} />
+        <Route path="/admin">
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <AdminHomePage />
+              </RequireAuth>
+            }
+          />
+          <Route path="login" element={<AdminLoginPage />} />
+          <Route
+            path="products/:category/:id"
+            element={
+              <RequireAuth>
+                <AdminEditProductPage />
+              </RequireAuth>
+            }
+          />
+        </Route>
+        <Route path="*" element={<>NOT FOUND</>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
