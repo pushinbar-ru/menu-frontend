@@ -1,5 +1,9 @@
+const headers = { "Content-Type": "application/json" };
+// const mode = "no-cors";
+const requestInit = { headers } as RequestInit;
+
 const getProductFetch = (url: string) => {
-  return fetch(url)
+  return fetch(url, requestInit)
     .then((r) => r.json())
     .then((r) => {
       return Promise.resolve(r);
@@ -16,7 +20,7 @@ const setProductFetch = <T>(
   setResult: React.Dispatch<React.SetStateAction<Record<string, T>>>
 ) => {
   setLoading(true);
-  fetch(url)
+  fetch(url, requestInit)
     .then((r) => r.json())
     .then((r) => {
       setResult(r);
@@ -81,6 +85,7 @@ export const setProductByCategoryAndId = <T>(
 export const putProductFetch = (category: string, id: string, body: any) => {
   return fetch(`https://api.pushinbar.ru/products/${category}/${id}?id=${id}`, {
     /* TODO: убрать query параметр после фикса на бэкенде + вынести URL куда-то */
+    ...requestInit,
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
