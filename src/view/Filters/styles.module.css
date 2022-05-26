@@ -1,0 +1,226 @@
+.container {
+  position: sticky;
+  top: 64px;
+  z-index: 200;
+  backdrop-filter: brightness(0); /* TODO: написать supports для backdrop */
+  background-color: rgba(37, 37, 37, 0.5);
+}
+
+.select {
+  /* TODO: проверить эту магию со скачками */
+  margin-bottom: 4px;
+  padding: 16px 0 0 16px;
+}
+
+.sorting {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.sortTitleMobile {
+  display: inline-block;
+}
+
+.sortTitleDesktop {
+  display: none;
+}
+
+/* TODO: Проверить у всех переопределение отступов, убрать из библиотеки */
+.sortTitleMobile,
+.sortTitleDesktop {
+  margin: 0;
+  margin-right: 4px;
+}
+
+.label {
+  display: none;
+}
+
+.sortLabels {
+  display: none;
+}
+
+.sortOptions > span,
+.sortLabels > span {
+  cursor: pointer;
+  width: max-content;
+}
+
+.sortOptions > span > svg,
+.sortLabels span > svg {
+  transition: transform 0.25s ease;
+}
+
+.descending .sortOptions > span > svg,
+.descending .sortLabels span > svg {
+  transform: rotate(180deg) scaleX(-1);
+}
+
+.sorting > button {
+  margin-left: auto;
+}
+
+.moreOptions {
+  display: none;
+}
+
+.tagOptions {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+/* TODO: заменить на нормальный className */
+.tagOptions > p:first-of-type {
+  margin-bottom: 4px;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.extended {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.extended .sortLabel {
+  display: none;
+}
+
+.extended .sortLabels {
+  display: flex;
+  flex-direction: column;
+}
+
+.extended .moreOptions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.filterButtonDesktop {
+  display: none;
+}
+
+.extended > .filterButtonMobile {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 120px;
+  }
+
+  .select {
+    display: none;
+  }
+
+  .label {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .label > span {
+    cursor: pointer;
+  }
+
+  .search {
+    flex: 1;
+    margin-bottom: 0;
+    margin-left: 224px;
+  }
+
+  .filterButtonMobile {
+    display: none;
+  }
+
+  .filterButtonDesktop {
+    display: inline-flex;
+    padding: 0 !important;
+  }
+
+  .filterButtonDesktop:hover {
+    background: transparent;
+  }
+
+  .sorting {
+    margin-top: 18px;
+    margin-left: 0;
+    padding: 0 0 18px;
+  }
+
+  .extended {
+    flex-direction: row;
+  }
+
+  .sortTitleMobile {
+    display: none;
+  }
+
+  .sortTitleDesktop {
+    display: inline-block;
+    margin-right: 0;
+  }
+
+  .sortLabel {
+    display: none;
+  }
+
+  .sortOptions {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .sortLabels {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .extended {
+    flex-direction: column;
+  }
+
+  .extended .sortLabels {
+    flex-direction: row;
+  }
+
+  .extended > .filterButtonDesktop {
+    display: none;
+  }
+
+  .clientContainer .sorting {
+    margin: 0;
+    padding: 0;
+  }
+
+  .clientContainer .label {
+    height: 64px;
+  }
+
+  .clientContainer .filterButtonDesktop {
+    position: absolute;
+    right: 120px;
+    top: 18px;
+  }
+
+  .clientContainer .sortOptions {
+    display: none;
+  }
+
+  .clientContainer .extended .sortOptions {
+    display: flex;
+  }
+
+  .clientContainer .extended {
+    margin-top: 18px;
+    margin-left: 0;
+    padding: 0 0 18px;
+  }
+}
