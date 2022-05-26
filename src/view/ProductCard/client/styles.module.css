@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.photoWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  text-align: center;
+  background: var(--white-inactive);
+  border-radius: 16px;
+  transform: rotate(-4deg);
+  overflow: hidden;
+}
+
+.photo > p {
+  transform: rotate(4deg);
+}
+
+.photo > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.subcategories {
+  position: absolute;
+  top: -4px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 0 8px;
+}
+
+.price {
+  position: absolute !important;
+  bottom: 0;
+  right: -4px;
+  transform: rotate(3deg);
+}
+
+.productInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .productInfoWrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .productInfo {
+    flex: 1;
+  }
+}
