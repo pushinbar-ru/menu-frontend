@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  row-gap: 16px;
+  grid-template-columns: 100%;
+  padding: 24px 16px;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    padding: 24px 120px;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 32px;
+    column-gap: 64px;
+  }
+}
