@@ -39,7 +39,7 @@
 }
 
 .textForDesktop {
-  display: none;
+  display: none !important;
 }
 
 .titleWrapper {
@@ -97,13 +97,13 @@
 }
 
 .likeInfo {
-  align-self: center;
+  align-self: center !important;
 }
 
 .cancelButton {
-  position: fixed;
-  top: 16px;
-  right: 16px;
+  position: fixed !important;
+  top: 16px !important;
+  right: 16px !important;
 }
 
 @media (min-width: 1200px) {
@@ -126,15 +126,15 @@
   }
 
   .textForMobile {
-    display: none;
+    display: none !important;
   }
 
   .textForDesktop {
-    display: block;
+    display: block !important;
   }
 
   .cancelButton {
-    top: 20px;
-    right: 492px;
+    top: 20px !important;
+    right: 492px !important;
   }
 }

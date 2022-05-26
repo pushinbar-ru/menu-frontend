@@ -18,7 +18,7 @@
 }
 
 .backButton {
-  display: none;
+  display: none !important;
 }
 
 .form {
@@ -54,11 +54,11 @@
 }
 
 .volume {
-  max-width: 100px;
+  max-width: 100px !important;
 }
 
 .sign {
-  flex: 1;
+  flex: 1 !important;
 }
 
 .pictureInfo {
@@ -117,7 +117,7 @@
 }
 
 .recommendationsDesktop {
-  display: none;
+  display: none !important;
 }
 
 .productInfo {
@@ -190,26 +190,26 @@
 
 .changeLabelSuccess,
 .changeLabelError {
-  margin: 10px 0;
+  margin: 10px 0 !important;
 }
 
 .changeLabelSuccess {
-  color: var(--green);
+  color: var(--green) !important;
 }
 
 .changeLabelSuccess > svg > path {
-  fill: var(--green);
+  fill: var(--green) !important;
   stroke: var(
     --green
-  ); /* TODO: добавить это в библиотеку, не везде нужен fill, где-то stroke */
+  ) !important; /* TODO: добавить это в библиотеку, не везде нужен fill, где-то stroke */
 }
 
 .changeLabelError {
-  color: var(--red);
+  color: var(--red) !important;
 }
 
 .changeLabelError > svg > path {
-  stroke: var(--red);
+  stroke: var(--red) !important;
 }
 
 @media (min-width: 1200px) {
@@ -227,7 +227,7 @@
   }
 
   .backButton {
-    display: flex;
+    display: flex !important;
   }
 
   .input {
@@ -240,11 +240,11 @@
   }
 
   .drinkInfo > .inputHigh {
-    max-width: 100px;
+    max-width: 100px !important;
   }
 
   .selectStatus {
-    margin-right: 372px;
+    margin-right: 372px !important;
   }
 
   .pictureInfoWrapper {
@@ -273,11 +273,11 @@
   }
 
   .recommendationsMobile {
-    display: none;
+    display: none !important;
   }
 
   .recommendationsDesktop {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .changeActionsMobile {

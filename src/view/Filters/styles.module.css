@@ -19,18 +19,18 @@
 }
 
 .sortTitleMobile {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 .sortTitleDesktop {
-  display: none;
+  display: none !important;
 }
 
 /* TODO: Проверить у всех переопределение отступов, убрать из библиотеки */
 .sortTitleMobile,
 .sortTitleDesktop {
-  margin: 0;
-  margin-right: 4px;
+  margin: 0 !important;
+  margin-right: 4px !important;
 }
 
 .label {
@@ -88,7 +88,7 @@
 }
 
 .extended .sortLabel {
-  display: none;
+  display: none !important;
 }
 
 .extended .sortLabels {
@@ -103,11 +103,11 @@
 }
 
 .filterButtonDesktop {
-  display: none;
+  display: none !important;
 }
 
 .extended > .filterButtonMobile {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 1200px) {
@@ -116,7 +116,7 @@
   }
 
   .select {
-    display: none;
+    display: none !important;
   }
 
   .label {
@@ -131,21 +131,21 @@
 
   .search {
     flex: 1;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     margin-left: 224px;
   }
 
   .filterButtonMobile {
-    display: none;
+    display: none !important;
   }
 
   .filterButtonDesktop {
-    display: inline-flex;
+    display: inline-flex !important;
     padding: 0 !important;
   }
 
   .filterButtonDesktop:hover {
-    background: transparent;
+    background: transparent !important;
   }
 
   .sorting {
@@ -159,16 +159,16 @@
   }
 
   .sortTitleMobile {
-    display: none;
+    display: none !important;
   }
 
   .sortTitleDesktop {
-    display: inline-block;
-    margin-right: 0;
+    display: inline-block !important;
+    margin-right: 0 !important;
   }
 
   .sortLabel {
-    display: none;
+    display: none !important;
   }
 
   .sortOptions {
@@ -192,7 +192,7 @@
   }
 
   .extended > .filterButtonDesktop {
-    display: none;
+    display: none !important;
   }
 
   .clientContainer .sorting {
@@ -205,9 +205,9 @@
   }
 
   .clientContainer .filterButtonDesktop {
-    position: absolute;
-    right: 120px;
-    top: 18px;
+    position: absolute !important;
+    right: 120px !important;
+    top: 18px !important;
   }
 
   .clientContainer .sortOptions {
