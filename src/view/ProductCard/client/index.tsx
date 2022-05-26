@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/jsx-curly-brace-presence */
 import React from "react";
-import { Link } from "react-router-dom";
 import { Body, Typography, Text } from "@pushinbar-ru/bar-ui";
 
 import styles from "./styles.module.css";
@@ -71,23 +73,25 @@ const ClientProductCard = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.photoWrapper} onClick={onClick}>
-        <div className={styles.photo}>
-          {photoSrc ? (
-            <img src={photoSrc} alt={`Фото товара «${name}»`} />
-          ) : (
-            <Body>
-              Фото <br /> будет <br /> позже
-            </Body>
-          )}
+      {
+        <div className={styles.photoWrapper} onClick={onClick}>
+          <div className={styles.photo}>
+            {photoSrc ? (
+              <img src={photoSrc} alt={`Фото товара «${name}»`} />
+            ) : (
+              <Body>
+                Фото <br /> будет <br /> позже
+              </Body>
+            )}
+          </div>
+          <div className={styles.subcategories}>
+            {subcategories.map((item) => (
+              <CategoryLabel key={item} name={item} />
+            ))}
+          </div>
+          <Price amount={priceAmount} className={styles.price} />
         </div>
-        <div className={styles.subcategories}>
-          {subcategories.map((name) => (
-            <CategoryLabel key={name} name={name} />
-          ))}
-        </div>
-        <Price amount={priceAmount} className={styles.price} />
-      </div>
+      }
       <div className={styles.productInfoWrapper}>
         <div className={styles.productInfo}>
           <Text bold onClick={onClick} className={styles.title}>

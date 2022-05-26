@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from "react";
 
 import styles from "./styles.module.css";
@@ -53,20 +54,17 @@ const AdminHomePage = () => {
     // TODO: вынести в общую функцию sort, принимающая массив и тип сортировки. В начале проверить на null, а потом вызывать sortByType
     const sortByType = {
       "по алфавиту": (a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0),
-      "по цене": (a, b) =>
-        a.price === null ? -1 : b.price === null ? 1 : a.price - b.price,
-      "по популярности": (a, b) =>
-        a.likesCount === null
-          ? -1
-          : b.likesCount === null
-          ? 1
-          : a.likesCount - b.likesCount,
-      "по остаткам": (a, b) =>
-        a.rest === null ? -1 : b.rest === null ? 1 : a.rest - b.rest,
-      "по градусу": (a, b) =>
-        a.alc === null ? -1 : b.alc === null ? 1 : a.alc - b.alc,
-      "по кислотности": (a, b) =>
-        a.ibu === null ? -1 : b.ibu === null ? 1 : a.ibu - b.ibu,
+      "по цене": ({ price: a }, { price: b }) =>
+        a === null ? -1 : b === null ? 1 : a - b,
+      "по популярности": ({ likesCount: a }, { likesCount: b }) =>
+        a === null ? -1 : b === null ? 1 : a - b,
+      "по остаткам": ({ rest: a }, { rest: b }) =>
+        a === null ? -1 : b === null ? 1 : a - b,
+      "по градусу": ({ alc: a }, { alc: b }) =>
+        a === null ? -1 : b === null ? 1 : a - b,
+      "по кислотности": ({ ibu: a }, { ibu: b }) =>
+        a === null ? -1 : b === null ? 1 : a - b,
+      // eslint-disable-next-line no-unused-vars
     } as Record<string, (a: any, b: any) => number>; // TODO: any заменить на ProductType
     const sortedProducts = categoryAndTagsFiltered.sort((a, b) => {
       const result = sortByType[sortType](a, b);

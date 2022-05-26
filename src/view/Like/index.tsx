@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Label, LikeIcon } from "@pushinbar-ru/bar-ui";
 
-import styles from "./styles.module.css";
+// import styles from "./styles.module.css";
 
 export interface LikeProps {
   count: number;

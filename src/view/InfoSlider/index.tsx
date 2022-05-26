@@ -116,9 +116,9 @@ export const InfoSlider = ({ product, opened, setOpened }: InfoSliderProps) => {
                 <Text size="small" className={styles.textForDesktop}>
                   IBU
                 </Text>
-                <Body className={styles.textForMobile}>{ibu ? ibu : "-"}</Body>
+                <Body className={styles.textForMobile}>{ibu || "-"}</Body>
                 <Body size="large" className={styles.textForDesktop}>
-                  {ibu ? ibu : "-"}
+                  {ibu || "-"}
                 </Body>
               </div>
             </>

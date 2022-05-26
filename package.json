@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pushinbar-ru/bar-ui": "^0.0.1-bj",
+    "@pushinbar-ru/bar-ui": "^0.0.2",
     "@redux-devtools/extension": "^3.2.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
