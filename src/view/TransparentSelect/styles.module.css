@@ -1,0 +1,59 @@
+.select {
+  position: relative;
+  border-radius: 4px;
+}
+
+.select:focus {
+  outline: 1px solid var(--yellow);
+}
+
+.select > input {
+  display: none;
+}
+
+.caretDownButton {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+  background: transparent;
+  cursor: pointer;
+}
+
+.caretDownButton > h3 {
+  margin: 0;
+  margin-left: 4px;
+}
+
+.select svg:first-of-type {
+  font-size: 28px;
+}
+
+.select svg:last-of-type {
+  font-size: 24px;
+  transition: transform 0.25s ease;
+}
+
+.select_opened svg:last-of-type {
+  transform: rotate(180deg);
+}
+
+.items {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 52px;
+  left: 16px;
+  margin: 0;
+  padding: 0;
+  min-width: 200px;
+  white-space: nowrap;
+  border-radius: 4px;
+  background-color: var(--white-inactive);
+}
+
+.select_opened .items {
+  display: block;
+}
