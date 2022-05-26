@@ -2,19 +2,17 @@
 
 ## Используемый инструментарий
 
-- React
+- React with Redux
 - React Router
 - Typescirpt
 - CSS Modules
 - Babel
-- Husky with lint-staged
 - Prettier
-- Eslint
+- Eslint with CI
 - Webpack
 - ~~Vercel~~ Heroku CI/CD
 - Библиотека компонентов [@pushinbar-ru/bar-ui](https://github.com/pushinbar-ru/bar-ui)
 
 ## TODO
 
-- [ ] Redux
 - [ ] Jest | React Testing Library

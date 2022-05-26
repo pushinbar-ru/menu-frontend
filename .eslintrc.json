@@ -25,6 +25,12 @@
       2,
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -34,6 +40,16 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
-  }
+    ],
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }
