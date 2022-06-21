@@ -129,25 +129,25 @@ const AdminEditProductPage = () => {
     const values = e.target as any; // TODO: any заменить на ProductType
     // TODO: any заменить на ProductType
     const result: any = {
-      name: values.name.value,
+      name: values.name?.value,
       photo: photoSrc,
-      description: values.description.innerHTML,
-      status: values.status.dataset.value,
+      description: values.description?.innerHTML,
+      status: values.status.dataset?.value,
       barcode: product.barcode,
-      subcategories: values.subcategories.value
-        .replace(/\s/g, "")
-        .split(",")
-        .filter((x: string) => x),
     };
     if (isDrink) {
-      result.volume = values.volume.value;
+      result.subcategories = values.subcategories.value
+        ?.replace(/\s/g, "")
+        .split(",")
+        .filter((x: string) => x);
+      result.volume = values.volume?.value;
     }
     if (category?.toLowerCase() === "alcohol") {
       result.untappdUrl = null; // TODO: сделать, когда будет на бэке
-      result.brewery = values.brewery.value;
-      result.ibu = values.ibu.value;
-      result.alc = values.alc.value;
-      result.volume = values.volume.value;
+      result.brewery = values.brewery?.value;
+      result.ibu = values.ibu?.value;
+      result.alc = values.alc?.value;
+      result.volume = values.volume?.value;
     }
     console.log(result);
 

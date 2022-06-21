@@ -151,15 +151,17 @@ export const InfoSlider = ({ product, opened, setOpened }: InfoSliderProps) => {
             </div>
           </div>
         )}
-        <div className={styles.description}>
-          <Text size="large" bold className={styles.textForMobile}>
-            Описание
-          </Text>
-          <Body size="small" bold className={styles.textForDesktop}>
-            Описание
-          </Body>
-          <Text>{description}</Text>
-        </div>
+        {description && (
+          <div className={styles.description}>
+            <Text size="large" bold className={styles.textForMobile}>
+              Описание
+            </Text>
+            <Body size="small" bold className={styles.textForDesktop}>
+              Описание
+            </Body>
+            <Text>{description}</Text>
+          </div>
+        )}
         <div className={styles.likeInfoWrapper}>
           <Text size="large" className={styles.likeInfo}>
             {`Понравилось ${likesCount} ${getDeclension(
