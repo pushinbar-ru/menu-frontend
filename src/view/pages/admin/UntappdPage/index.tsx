@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import cn from "classnames";
 import {
   ArrowLeftIcon,
   Body,
   Button,
-  CancelIcon,
-  CheckIcon,
-  CloudDownloadIcon,
-  CrossIcon,
-  ImageIcon,
   Input,
-  Label,
-  PictureIcon,
-  RefreshIcon,
-  SaveIcon,
-  Select,
-  SelectItem,
   Text,
-  TextArea,
   Typography,
-  Uploader,
 } from "@pushinbar-ru/bar-ui";
 
 import styles from "./styles.module.css";
