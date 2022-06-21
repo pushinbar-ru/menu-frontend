@@ -1,0 +1,70 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.backButton {
+  display: none !important;
+}
+
+.title {
+  margin-bottom: 24px !important;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  margin-bottom: 16px !important;
+}
+
+.promt {
+  margin-bottom: 8px !important;
+}
+
+.untappd,
+.untappdWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  margin-bottom: 0 !important;
+  flex: 1 !important;
+}
+
+.manualAction {
+  color: var(--blue) !important;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    padding: 24px 120px;
+  }
+
+  .backButton {
+    display: flex !important;
+    margin-bottom: 8px !important;
+    padding-left: 0;
+    padding-right: 4px;
+    width: max-content;
+  }
+
+  .mainContent {
+    width: max-content;
+  }
+
+  .subtitle {
+    margin-bottom: 24px !important;
+  }
+
+  .untappdWrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

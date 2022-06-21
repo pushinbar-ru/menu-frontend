@@ -27,7 +27,10 @@ const AdminProductCard = ({
   photoSrc,
 }: AdminProductCardProps) => {
   // TODO: убрать category после правок на бэке
-  const productLink = `./products/${category}/${id}`;
+  const productLink =
+    isNew && category.toLowerCase() === "alcohol"
+      ? `./untappd/${id}`
+      : `./products/${category}/${id}`;
 
   return (
     <div className={styles.wrapper}>
