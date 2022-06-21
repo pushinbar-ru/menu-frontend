@@ -90,7 +90,6 @@ export const putProductFetch = (category: string, id: string, body: any) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   })
-    .then((r) => r.json())
     .then((r) => {
       return Promise.resolve(r);
     })
