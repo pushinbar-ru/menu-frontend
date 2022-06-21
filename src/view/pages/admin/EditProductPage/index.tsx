@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import cn from "classnames";
 import {
   ArrowLeftIcon,
@@ -13,6 +13,7 @@ import {
   Input,
   Label,
   PictureIcon,
+  RefreshIcon,
   SaveIcon,
   Select,
   SelectItem,
@@ -29,6 +30,7 @@ import { getDeclension } from "../../../../helpers/getDeclension";
 import {
   putProductFetch,
   setProductByCategoryAndId,
+  getUntappdFetch,
 } from "../../../../model/product/fetchers";
 
 import Spinner from "../../../Spinner";
@@ -46,6 +48,14 @@ const AdminEditProductPage = () => {
   const [saveMobileButtonWidth, setSaveMobileButtonWidth] = useState(0);
   const [fetched, setFetched] = useState(false);
   const [fetchSuccess, setFetchSuccess] = useState(false);
+
+  const { state = {} } = useLocation() as any; // TODO: заменить any
+  const { untappdValues = {} } = state ?? {};
+  const [initialValues, setInitialValues] = useState(untappdValues);
+  const [untappdUrl, setUntappdUrl] = useState(
+    initialValues.untappdUrl ?? product.untappdUrl
+  );
+  const [untappdErrorMessage, setUntappdErrorMessage] = useState("");
 
   useEffect(() => {
     // TODO: добавить вывод ошибок об отсутствии категорий с айдишнком, или типизировать useParams, или типизировать AdminEditProductPage (сославшись на роутинг, где этот путь точно должен быть)
@@ -137,17 +147,17 @@ const AdminEditProductPage = () => {
     };
     if (isDrink) {
       result.subcategories = values.subcategories.value
-        ?.replace(/\s/g, "")
-        .split(",")
+        ?.split(",")
+        .map((x: string) => x.trim())
         .filter((x: string) => x);
       result.volume = values.volume?.value;
-    }
-    if (category?.toLowerCase() === "alcohol") {
-      result.untappdUrl = null; // TODO: сделать, когда будет на бэке
       result.brewery = values.brewery?.value;
       result.ibu = values.ibu?.value;
       result.alc = values.alc?.value;
       result.volume = values.volume?.value;
+    }
+    if (category?.toLowerCase() === "alcohol") {
+      result.untappdUrl = values.untappdUrl?.value;
     }
     console.log(result);
 
@@ -211,7 +221,7 @@ const AdminEditProductPage = () => {
                 <Input
                   name="name"
                   placeholder="Название"
-                  initialValue={product.name}
+                  initialValue={initialValues.name ?? product.name}
                   className={styles.input}
                   isReseted={isReseted}
                 />
@@ -226,7 +236,7 @@ const AdminEditProductPage = () => {
                   <Input
                     name="brewery"
                     placeholder="Пивоварня"
-                    initialValue={product.brewery}
+                    initialValue={initialValues.brewery ?? product.brewery}
                     className={styles.input}
                     isReseted={isReseted}
                   />
@@ -252,7 +262,9 @@ const AdminEditProductPage = () => {
                   ref={textAreaRef}
                   name="description"
                   placeholder="Описание"
-                  initialValue={product.description}
+                  initialValue={
+                    initialValues.description ?? product.description
+                  }
                   className={styles.inputHigh}
                   isReseted={isReseted}
                 />
@@ -261,7 +273,10 @@ const AdminEditProductPage = () => {
                     <Input
                       name="subcategories"
                       placeholder="Категории (разделяются запятой)"
-                      initialValue={product.subcategories}
+                      initialValue={
+                        initialValues.subcategory ??
+                        product.subcategories?.join(", ")
+                      }
                       className={styles.inputHigh}
                       isReseted={isReseted}
                     />
@@ -269,14 +284,14 @@ const AdminEditProductPage = () => {
                       <Input
                         name="alc"
                         placeholder="% Алкоголя"
-                        initialValue={product.alc}
+                        initialValue={initialValues.alc ?? product.alc}
                         className={styles.inputHigh}
                         isReseted={isReseted}
                       />
                       <Input
                         name="ibu"
                         placeholder="IBU"
-                        initialValue={product.ibu}
+                        initialValue={initialValues.ibu ?? product.ibu}
                         className={styles.inputHigh}
                         isReseted={isReseted}
                       />
@@ -293,7 +308,7 @@ const AdminEditProductPage = () => {
                 <Select
                   name="status"
                   label="Показывать карточку"
-                  className={cn(styles.inputHigh, styles.selectStatus)}
+                  className={cn(styles.inputHigh, styles.shortInput)}
                   initialValue={
                     product.status?.toLowerCase() !== "new"
                       ? product.status
@@ -304,6 +319,42 @@ const AdminEditProductPage = () => {
                   <SelectItem value="NotPublished">Только в админке</SelectItem>
                   <SelectItem value="Published">В меню и админке</SelectItem>
                 </Select>
+                {category?.toLowerCase() === "alcohol" && (
+                  <div className={styles.untappdWrapper}>
+                    <Input
+                      name="untappdUrl"
+                      placeholder="Ссылка на Untappd"
+                      initialValue={
+                        initialValues.untappdUrl ?? product.untappdUrl
+                      }
+                      isReseted={isReseted}
+                      getValue={(value: string) => setUntappdUrl(value)}
+                      validationErrorMessage={untappdErrorMessage}
+                      withCopy
+                      className={cn(styles.input, styles.untappdInput)}
+                    />
+                    <Button
+                      type="button"
+                      size="large"
+                      icon={<RefreshIcon />}
+                      color="transparent"
+                      onClick={() => {
+                        if (untappdUrl) {
+                          getUntappdFetch(
+                            untappdUrl,
+                            setLoading,
+                            setUntappdErrorMessage,
+                            setInitialValues
+                          );
+                        }
+                      }}
+                      disabled={!untappdUrl}
+                      className={styles.untappdAction}
+                    >
+                      Обновить данные из Untappd
+                    </Button>
+                  </div>
+                )}
                 <div className={styles.pictureInfo}>
                   <Body bold>Картинка</Body>
                   <div className={styles.pictureInfoWrapper}>

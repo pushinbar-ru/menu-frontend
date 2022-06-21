@@ -61,6 +61,16 @@
   flex: 1 !important;
 }
 
+.untappdWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.untappdInput {
+  flex: 1;
+}
+
 .pictureInfo {
   margin-top: 24px;
 }
@@ -243,8 +253,22 @@
     max-width: 100px !important;
   }
 
-  .selectStatus {
+  .shortInput {
     margin-right: 372px !important;
+  }
+
+  .untappdWrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .untappdInput {
+    flex: 1;
+  }
+
+  .untappdAction {
+    flex-basis: 356px;
   }
 
   .pictureInfoWrapper {
