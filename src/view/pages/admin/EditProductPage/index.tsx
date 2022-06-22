@@ -518,8 +518,12 @@ const AdminEditProductPage = () => {
                 </div>
                 <div className={styles.barcodeWrapper}>
                   <Body bold>Штрих-код</Body>
-                  <div className={styles.barcode}>
-                    {product.barcode ? product.barcode : "0000000000000"}
+                  <div
+                    className={cn(styles.barcode, {
+                      [styles.emptyBarcode]: !product.barcode,
+                    })}
+                  >
+                    {product.barcode ? product.barcode : "Нет штрих-кода"}
                   </div>
                 </div>
               </div>

@@ -170,6 +170,13 @@
   border-radius: 4px;
 }
 
+.emptyBarcode {
+  font-family: Lab Grotesque, -apple-system, BlinkMacSystemFont, Arial,
+    Liberation Sans, Nimbus Sans L, sans-serif;
+  font-size: 32px;
+  color: var(--white-inactive);
+}
+
 .changeActionsDesktop {
   display: none;
 }
