@@ -38,3 +38,15 @@
     width: 100% !important;
   }
 }
+
+@media (min-width: 1600px) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 2000px) {
+  .main {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
