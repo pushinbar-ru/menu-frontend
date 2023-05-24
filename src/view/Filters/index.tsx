@@ -133,10 +133,9 @@ const Filters = ({
         className={styles.select}
       />
       <div className={styles.label}>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <Label
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
+            key={item.value}
             onClick={() => setCurrentValue(item.value)}
             size="large"
             icon={item.icon}
@@ -182,11 +181,10 @@ const Filters = ({
             {currentSort}
           </Label>
           <div className={styles.sortLabels}>
-            {neededSortTypes.map((type, index) =>
+            {neededSortTypes.map((type) =>
               type === currentSort ? (
                 <Label
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
+                  key={type}
                   size="large"
                   icon={<SortAZIcon />}
                   iconPosition="right"
@@ -200,8 +198,7 @@ const Filters = ({
                 </Label>
               ) : (
                 <Label
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
+                  key={type}
                   size="large"
                   onClick={() => setCurrentSort(type)}
                 >

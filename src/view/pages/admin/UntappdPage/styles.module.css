@@ -29,7 +29,7 @@
 .untappdWrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .input {
@@ -67,4 +67,33 @@
     align-items: flex-start;
     gap: 16px;
   }
+}
+
+/* TODO: ниже дублирующиеся стили для штрих-кода из Edit */
+.barcodeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Libre Barcode EAN13 Text";
+  font-feature-settings: "calt" 1;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 120px;
+  padding: 22px 0;
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 4px;
+}
+
+.emptyBarcode {
+  font-family: Lab Grotesque, -apple-system, BlinkMacSystemFont, Arial,
+    Liberation Sans, Nimbus Sans L, sans-serif;
+  font-size: 32px;
+  color: var(--white-inactive);
 }

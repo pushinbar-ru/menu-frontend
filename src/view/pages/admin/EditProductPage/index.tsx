@@ -43,15 +43,16 @@ const AdminEditProductPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [product, setProduct] = useState<any>({}); // TODO: заменить any на ProductType
   const [uploaderOpened, setUploaderOpened] = useState(false);
-  const [photoSrc, setPhotoSrc] = useState("");
   const [saveDesktopButtonWidth, setSaveDesktopButtonWidth] = useState(0);
   const [saveMobileButtonWidth, setSaveMobileButtonWidth] = useState(0);
   const [fetched, setFetched] = useState(false);
   const [fetchSuccess, setFetchSuccess] = useState(false);
-
+  
   const { state = {} } = useLocation() as any; // TODO: заменить any
   const { untappdValues = {} } = state ?? {};
   const [initialValues, setInitialValues] = useState(untappdValues);
+  const [photoSrc, setPhotoSrc] = useState(initialValues.imageUrl ?? "");
+  // TODOD: поправить везде обращение к продукту, потому что поля там появляются позже
   const [untappdUrl, setUntappdUrl] = useState(
     initialValues.untappdUrl ?? product.untappdUrl
   );
@@ -60,6 +61,7 @@ const AdminEditProductPage = () => {
   useEffect(() => {
     // TODO: добавить вывод ошибок об отсутствии категорий с айдишнком, или типизировать useParams, или типизировать AdminEditProductPage (сославшись на роутинг, где этот путь точно должен быть)
     if (category && id) {
+      // TODO: избавить от прокидывания коллбэков везде, где-то достаточно просто манипулированием ссылок, которые тоже надо поправить (для фильтров/сортировки)
       // TODO: накинуть типы вместо any
       setProductByCategoryAndId<any>(
         category,
@@ -203,6 +205,7 @@ const AdminEditProductPage = () => {
               size="large"
               color="transparent"
               icon={<ArrowLeftIcon />}
+              // TODO: переводить по ссылке в меню, или учитывать, что -1 может и не быть (когда открыли)
               onClick={() => navigate(-1)}
               className={styles.backButton}
             >
@@ -330,6 +333,7 @@ const AdminEditProductPage = () => {
                       isReseted={isReseted}
                       getValue={(value: string) => setUntappdUrl(value)}
                       validationErrorMessage={untappdErrorMessage}
+                      // TODO: мем, тут для кнопки копирования используется type="submit", надо исправить
                       withCopy
                       className={cn(styles.input, styles.untappdInput)}
                     />
@@ -348,6 +352,7 @@ const AdminEditProductPage = () => {
                           );
                         }
                       }}
+                      // TODO: поправить эти корявые записи...
                       disabled={!untappdUrl}
                       className={styles.untappdAction}
                     >

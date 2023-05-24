@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import cn from "classnames";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeftIcon,
@@ -110,6 +111,7 @@ const AdminUntappdPage = () => {
                 <Button
                   size="large"
                   onClick={() => {
+                    // TODO: тут и в Edit зачем-то это условие, хотя кнопка и так дизейблится без этой ссылки
                     if (untappdUrl) {
                       getUntappdFetch(
                         untappdUrl,
@@ -123,6 +125,16 @@ const AdminUntappdPage = () => {
                 >
                   Загрузить
                 </Button>
+              </div>
+              {/* TODO: копипаста из Edit */}
+              <div className={styles.barcodeWrapper}>
+                <div
+                  className={cn(styles.barcode, {
+                    [styles.emptyBarcode]: !productValues.barcode,
+                  })}
+                >
+                  {productValues.barcode ? productValues.barcode : "Нет штрих-кода"}
+                </div>
               </div>
               <Button
                 size="large"
