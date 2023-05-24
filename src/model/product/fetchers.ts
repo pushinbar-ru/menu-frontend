@@ -24,6 +24,7 @@ const setProductFetch = <T>(
     .then((r) => r.json())
     .then((r) => {
       setResult(r);
+      // TODO: в finally...
       setLoading(false);
     })
     .catch((error) => {

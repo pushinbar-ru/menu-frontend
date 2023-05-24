@@ -5,13 +5,13 @@ import { Body } from "@pushinbar-ru/bar-ui";
 import styles from "./styles.module.css";
 
 import Price from "../../Price";
-import Like from "../../Like";
+// import Like from "../../Like";
 
 export interface AdminProductCardProps {
   id: string;
   category: string;
   name: string;
-  likesCount: number;
+  // likesCount: number;
   priceAmount: number;
   isNew?: boolean;
   photoSrc?: string;
@@ -21,7 +21,7 @@ const AdminProductCard = ({
   id,
   category,
   name,
-  likesCount,
+  // likesCount,
   priceAmount,
   isNew,
   photoSrc,
@@ -56,7 +56,7 @@ const AdminProductCard = ({
           </Link>
         </div>
         <div className={styles.otherInfo}>
-          <Like count={likesCount} />
+          {/* <Like count={likesCount} /> */}
           <Price amount={priceAmount} />
         </div>
       </div>
