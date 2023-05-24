@@ -26,7 +26,7 @@ export const InfoSlider = ({ product, opened, setOpened }: InfoSliderProps) => {
   const {
     type: category,
     name,
-    likesCount,
+    // likesCount,
     price: priceAmount,
     photo: photoSrc,
     subcategories = [],

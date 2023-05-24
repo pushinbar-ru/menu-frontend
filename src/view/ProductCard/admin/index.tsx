@@ -11,7 +11,7 @@ export interface AdminProductCardProps {
   id: string;
   category: string;
   name: string;
-  likesCount: number;
+  // likesCount: number;
   priceAmount: number;
   isNew?: boolean;
   photoSrc?: string;
@@ -21,7 +21,7 @@ const AdminProductCard = ({
   id,
   category,
   name,
-  likesCount,
+  // likesCount,
   priceAmount,
   isNew,
   photoSrc,

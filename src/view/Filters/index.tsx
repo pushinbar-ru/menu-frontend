@@ -80,7 +80,7 @@ const Filters = ({
   const adminSortTypes = [
     "по алфавиту",
     "по цене",
-    "по популярности",
+    // "по популярности",
     "по остаткам",
   ] as const;
 
@@ -88,7 +88,7 @@ const Filters = ({
     "по цене",
     "по градусу",
     "по кислотности",
-    "по популярности",
+    // "по популярности",
   ] as const;
 
   const neededSortTypes = forAdmin ? adminSortTypes : clientSortTypes;

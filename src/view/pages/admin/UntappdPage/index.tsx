@@ -133,7 +133,9 @@ const AdminUntappdPage = () => {
                     [styles.emptyBarcode]: !productValues.barcode,
                   })}
                 >
-                  {productValues.barcode ? productValues.barcode : "Нет штрих-кода"}
+                  {productValues.barcode
+                    ? productValues.barcode
+                    : "Нет штрих-кода"}
                 </div>
               </div>
               <Button

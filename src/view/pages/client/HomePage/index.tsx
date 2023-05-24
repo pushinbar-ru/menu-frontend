@@ -57,8 +57,8 @@ const ClientHomePage = () => {
       "по алфавиту": (a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0),
       "по цене": ({ price: a }, { price: b }) =>
         a === null ? -1 : b === null ? 1 : a - b,
-      "по популярности": ({ likesCount: a }, { likesCount: b }) =>
-        a === null ? -1 : b === null ? 1 : a - b,
+      // "по популярности": ({ likesCount: a }, { likesCount: b }) =>
+      //   a === null ? -1 : b === null ? 1 : a - b,
       "по остаткам": ({ rest: a }, { rest: b }) =>
         a === null ? -1 : b === null ? 1 : a - b,
       "по градусу": ({ alc: a }, { alc: b }) =>
@@ -114,7 +114,7 @@ const ClientHomePage = () => {
                   key={product.id}
                   category={product.type}
                   name={product.name}
-                  likesCount={product.likesCount}
+                  // likesCount={product.likesCount}
                   priceAmount={product.price}
                   photoSrc={product.photo}
                   volume={product.volume}

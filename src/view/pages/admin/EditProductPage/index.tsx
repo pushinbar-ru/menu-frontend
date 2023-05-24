@@ -47,7 +47,7 @@ const AdminEditProductPage = () => {
   const [saveMobileButtonWidth, setSaveMobileButtonWidth] = useState(0);
   const [fetched, setFetched] = useState(false);
   const [fetchSuccess, setFetchSuccess] = useState(false);
-  
+
   const { state = {} } = useLocation() as any; // TODO: заменить any
   const { untappdValues = {} } = state ?? {};
   const [initialValues, setInitialValues] = useState(untappdValues);

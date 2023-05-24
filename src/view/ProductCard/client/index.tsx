@@ -7,7 +7,7 @@ import { Body, Typography, Text } from "@pushinbar-ru/bar-ui";
 import styles from "./styles.module.css";
 
 import Price from "../../Price";
-import Like from "../../Like";
+// import Like from "../../Like";
 import { CategoryLabel } from "../../CategoryLabel";
 
 // TODO: вынести в ProductCard как общее
@@ -18,7 +18,7 @@ export interface ClientProductCardProps {
   volume?: string;
   brewery?: string;
   alc?: string;
-  likesCount: number;
+  // likesCount: number;
   priceAmount: number;
   photoSrc?: string;
   onClick?: () => void;
@@ -31,7 +31,7 @@ const ClientProductCard = ({
   volume,
   brewery,
   alc,
-  likesCount,
+  // likesCount,
   priceAmount,
   photoSrc,
   onClick,
