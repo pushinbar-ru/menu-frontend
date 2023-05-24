@@ -5,7 +5,7 @@ import { Body } from "@pushinbar-ru/bar-ui";
 import styles from "./styles.module.css";
 
 import Price from "../../Price";
-import Like from "../../Like";
+// import Like from "../../Like";
 
 export interface AdminProductCardProps {
   id: string;
@@ -56,7 +56,7 @@ const AdminProductCard = ({
           </Link>
         </div>
         <div className={styles.otherInfo}>
-          <Like count={likesCount} />
+          {/* <Like count={likesCount} /> */}
           <Price amount={priceAmount} />
         </div>
       </div>

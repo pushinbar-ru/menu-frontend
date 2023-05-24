@@ -101,9 +101,9 @@ const ClientProductCard = ({
             <Typography variant="caption">{additional}</Typography>
           )}
         </div>
-        <div className={styles.likes}>
+        {/* <div className={styles.likes}>
           <Like count={likesCount} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

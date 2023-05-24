@@ -4,12 +4,12 @@ import {
   Body,
   Button,
   CrossIcon,
-  LikeIcon,
+  // LikeIcon,
   Text,
   Typography,
 } from "@pushinbar-ru/bar-ui";
 
-import { getDeclension } from "../../helpers/getDeclension";
+// import { getDeclension } from "../../helpers/getDeclension";
 
 import { CategoryLabel } from "../CategoryLabel";
 import Price from "../Price";
@@ -162,7 +162,7 @@ export const InfoSlider = ({ product, opened, setOpened }: InfoSliderProps) => {
             <Text>{description}</Text>
           </div>
         )}
-        <div className={styles.likeInfoWrapper}>
+        {/* <div className={styles.likeInfoWrapper}>
           <Text size="large" className={styles.likeInfo}>
             {`Понравилось ${likesCount} ${getDeclension(
               "посетителю",
@@ -176,7 +176,7 @@ export const InfoSlider = ({ product, opened, setOpened }: InfoSliderProps) => {
               Оценить напиток
             </Button>
           }
-        </div>
+        </div> */}
       </div>
       <Button
         size="large"
